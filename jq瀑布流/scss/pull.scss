@@ -1,0 +1,162 @@
+ul {
+    width: 50%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+ul li {
+    list-style: none;
+    float: left;
+    text-align: left;
+    padding-bottom: 100px;
+
+    &:first-child {
+        text-align: right;
+    }
+
+    .item {
+        width: 100%;
+        margin-top: 5vw;
+
+        .imgBox {
+            width: 80%;
+            margin: 0 auto;
+
+            img {
+                width: 100%;
+                margin: 0 auto;
+                border-radius: 15px;
+            }
+        }
+
+        .info {
+            width: 80%;
+            height: 65px;
+            margin: 0 auto;
+            text-align: left;
+
+            p {
+                font-size: 3.5vw;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+        }
+
+        .btnBox {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .time {
+                font-size: 2.7vw;
+            }
+
+            .btn {
+                display: flex;
+                align-items: center;
+
+                &:first-child {
+                    margin-right: 5px;
+
+                }
+
+                .dianzan,
+                .pinglun {
+                    height: 13px;
+                }
+
+                span {
+                    font-size: 2.7vw;
+                }
+            }
+
+        }
+    }
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+
+    .headerBox {
+        width: 90%;
+        height: 30px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #CCCCCC;
+
+        .text {
+            color: #000000;
+            font-size: 13px;
+        }
+
+        img {
+            width: 18px;
+        }
+    }
+
+    .selecBox {
+        width: 100%;
+        background-color: #fff;
+        padding: 10px 0;
+        display: none;
+
+        .seleccontent {
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+
+    .itemShadow {
+        width: 30%;
+        height: 30px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        background: #F7F7F7;
+        border: 1px solid #CCCCCC;
+        border-radius: 10px;
+
+        input,
+        select {
+            width: 100%;
+            font-size: 10px;
+            height: 30px;
+            line-height: 30px;
+            padding-left: 10px;
+            color: #757575;
+
+            option {
+                color: #000000;
+            }
+        }
+
+        .sanjiao {
+            position: absolute;
+            right: 10px;
+        }
+    }
+
+}
+
+.content {
+    width: 100%;
+    padding-top: 50px;
+}
+
+
+.maxWidth {
+    margin: 0 auto;
+}

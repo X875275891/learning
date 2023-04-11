@@ -1,0 +1,37 @@
+// 关怀模式 ios
+body {
+	-webkit-text-size-adjust: 100% !important;
+	text-size-adjust: 100% !important;
+	-moz-text-size-adjust: 100% !important;
+}
+
+body,
+html {
+	margin: 0;
+	padding: 0;
+}
+input,textarea {
+	background: none;
+	outline: none;
+	border: 0px;
+	resize: none;
+}
+
+select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+	border: none;
+	box-shadow: none;
+	background-color: transparent;
+}
+
+select:focus {
+	outline: none;
+}
+
+p {
+	padding: 0;
+	margin: 0;
+}

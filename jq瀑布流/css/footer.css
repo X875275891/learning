@@ -1,0 +1,56 @@
+.footer {
+  width: 100%;
+  height: 65px;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  background-color: #fff;
+}
+
+.footer .leftTab,
+.footer .rightTab {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer .leftTab .tab,
+.footer .rightTab .tab {
+  text-align: center;
+}
+
+.footer .leftTab .tab:first-child,
+.footer .rightTab .tab:first-child {
+  margin-right: 20px;
+}
+
+.footer .leftTab .tab img,
+.footer .rightTab .tab img {
+  height: 6.53333vw;
+}
+
+.footer .leftTab .tab span,
+.footer .rightTab .tab span {
+  display: block;
+  font-size: 2.66667vw;
+  color: #666666;
+}
+
+.footer .leftTab .tab .footerActive,
+.footer .rightTab .tab .footerActive {
+  font-weight: bold;
+  color: #FF6C00;
+}
+
+.footer .addMyIdea {
+  width: 16vw;
+  height: 16vw;
+  position: fixed;
+  bottom: 32px;
+  border-radius: 50%;
+}
+
+.footer .addMyIdea img {
+  width: 100%;
+}
