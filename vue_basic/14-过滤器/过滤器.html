@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过滤器</title>
+    <script src="../js/vue.js"></script>
+    <script src="./day.js"></script>
+</head>
+<body>
+    <div id="root">
+        <!-- 计算属性实现 -->
+        <h3>现在是：{{fmtTime}}</h3>
+        <!-- 方法实现 -->
+        <h3>现在是：{{getFmtTime()}}</h3>
+        <!-- 过滤器实现 -->
+        <h3>现在是：{{time | timeformater('YYYY-MM-DD') | mySlice}} </h3>
+    </div>
+    <div id="root2">
+        <h3 :x="msg | mySlice">{{msg | mySlice}}</h3>
+    </div>
+    <script>
+        Vue.config.productionTip = false;
+        // 全局过滤器
+        Vue.filter('mySlice',function(value){
+            return value.slice(0,4)
+        })
+        new Vue({
+            el:'#root',
+            data:{
+                time:Date.now(),
+                
+            },
+            computed:{
+                fmtTime(){
+                    return dayjs(this.time).format('YYYY-MM-DD HH:mm:ss')
+                }
+            },
+            methods: {
+                getFmtTime(){
+                    return dayjs(this.time).format('YYYY-MM-DD HH:mm:ss')
+                }
+            },
+            // 局部过滤器
+            filters:{
+                timeformater(value,str='YYYY-MM-DD HH:mm:ss'){//如果str有值啧使用str本身的值，如果没有则用=的值
+                    return dayjs(value).format(str) 
+                },
+                mySlice(value){
+                    return value.slice(0,4)
+                }
+            }
+        })
+        new Vue({
+            el:'#root2',
+            data:{
+                msg:'hello,xxxxxxxxx',
+            },
+        })
+    </script>
+</body>
+</html>

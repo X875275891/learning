@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>基本使用</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <!-- 评论按钮 -->
+  <div class="comment" id="root" @mousedown="down" @touchstart="down" @mousemove="move" @touchmove="move"
+    @mouseup="end" @touchend="end" ref="fu">评论</div>
+  <script>
+    Vue.config.productionTip = false;
+
+    new Vue({
+      el: '#root',
+      // 注册组件（局部注册）
+      data() {
+        return {
+          isLoading: false,
+          flags: false, //控制使用
+          position: {
+            x: 0,
+            y: 0,
+          },
+          nx: "",
+          ny: "",
+          dx: "",
+          dy: "",
+          xPum: "",
+          yPum: "",
+        };
+      },
+      methods: {
+
+        down() {
+          this.flags = true;
+          var touch;
+          if (event.touches) {
+            touch = event.touches[0];
+          } else {
+            touch = event;
+          }
+          this.position.x = touch.clientX;
+          this.position.y = touch.clientY;
+          this.dx = this.$refs.fu.offsetLeft;
+          this.dy = this.$refs.fu.offsetTop;
+        },
+        move() {
+          if (this.flags) {
+            var touch;
+            if (event.touches) {
+              touch = event.touches[0];
+            } else {
+              touch = event;
+            }
+            this.nx = touch.clientX - this.position.x;
+            this.ny = touch.clientY - this.position.y;
+            this.xPum = this.dx + this.nx;
+            this.yPum = this.dy + this.ny;
+            let width = window.innerWidth - this.$refs.fu.offsetWidth; //屏幕宽度减去自身控件宽度
+            let height = window.innerHeight - this.$refs.fu.offsetHeight; //屏幕高度减去自身控件高度
+            this.xPum < 0 && (this.xPum = 0);
+            this.yPum < 0 && (this.yPum = 0);
+            this.xPum > width && (this.xPum = width);
+            this.yPum > height && (this.yPum = height);
+            // if (this.xPum >= 0 && this.yPum >= 0 && this.xPum<= width &&this.yPum<= height) {
+            this.$refs.fu.style.left = this.xPum + "px";
+            this.$refs.fu.style.top = this.yPum + "px";
+            // }
+            //阻止页面的滑动默认事件
+            document.addEventListener(
+              "touchmove",
+              function () {
+                event.preventDefault();
+              },
+              { passive: false } // 屏蔽报错
+            );
+          }
+        },
+        //鼠标释放时候的函数
+        end() {
+          // start 添加后松开鼠标会靠左 靠右
+          if(this.xPum<(window.innerWidth - this.$refs.fu.offsetWidth)/2){
+            this.$refs.fu.style.left = 0
+          }else{
+            this.$refs.fu.style.left =  window.innerWidth - this.$refs.fu.offsetWidth + 'px'
+          }
+          // end
+          this.flags = false;
+        },
+      }
+    })
+  </script>
+  <style lang="scss" scoped>
+    .comment {
+      position: fixed;
+      top: 50%;
+      right: 0;
+      width: 125px;
+      height: 125px;
+      background-color: #369afc;
+      border-radius: 50%;
+      font-size: 39px;
+      line-height: 125px;
+      text-align: center;
+      color: #ffffff;
+    }
+  </style>
+</body>
+
+</html>

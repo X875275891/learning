@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件修饰符</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        .demo1{
+            margin-top: 20px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <!-- 阻止默认事件 -->
+        <a href="http://www.baidu.com" @click.prevent="clickBtn">百度一下</a>
+        <!-- 阻止事件冒泡 -->
+        <div class="demo1" @click="clickBtn">
+            <a href="http://www.baidu.com" @click.stop="clickBtn">百度一下</a>
+        </div>
+        <!-- 事件只触发一次 -->
+        <button @click.once="clickBtn">百度一下</button>
+    </div>
+    
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        // vue2
+        // 创建Vue实例
+        const vm = new Vue({
+            el:'#root',
+            data(){
+                return {
+                    
+                }
+            },
+            methods:{
+                clickBtn(){
+                    alert(111)
+                }
+            }
+           
+        })
+        
+    </script>
+</body>
+</html>

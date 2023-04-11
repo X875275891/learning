@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初识vue</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        单向数据绑定：<input type="text" :value="name"><br>
+        双向数据绑定：<input type="text" v-model="name"><br>
+        <!-- v-model只能应用在表单元素上 元素需要有value -->
+    </div>
+    
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        // vue2
+        // 创建Vue实例
+        new Vue({
+            el:'#root',
+            data(){
+                return {
+                   name:'默认值为123456'
+                }
+            },
+            methods:{
+                clickBtn(){
+                    this.name = '约尔'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

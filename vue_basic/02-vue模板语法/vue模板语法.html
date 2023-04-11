@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初识vue</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h1>插值语法</h1>
+        <h3>hello,{{name}}</h3>
+        <button @click="clickBtn()">按钮</button>
+        <h1>指令语法</h1>
+        <a v-bind:href="allUrl.url">百度</a>|<a :href="allUrl.url2">Vue</a>
+    </div>
+    
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        // vue2
+        // 创建Vue实例
+        new Vue({
+            el:'#root',
+            data(){
+                return {
+                    name:'阿尼亚',
+                    allUrl:{
+                        url:'http://www.baidu.com',
+                        url2:'https://cn.vuejs.org/'
+                    }
+                }
+            },
+            methods:{
+                clickBtn(){
+                    this.name = '约尔'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

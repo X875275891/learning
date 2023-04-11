@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件处理</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h1>{{name}}</h1>
+        <button @click="clickBtn">点击提示信息</button>
+        <h3 v-if="flag">提示信息</h3>
+    </div>
+    
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        // vue2
+        // 创建Vue实例
+        const vm = new Vue({
+            el:'#root',
+            data(){
+                return {
+                    name:'清华',
+                    flag:false
+                }
+            },
+            methods:{
+                clickBtn(e){
+                    this.flag = true
+                    console.log(e.target);
+                }
+            }
+        })
+        
+    </script>
+</body>
+</html>
