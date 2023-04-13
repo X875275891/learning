@@ -1,0 +1,106 @@
+/* google、safari */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0;
+  line-height: 1px!important;
+}
+/* 火狐 */
+input[type="number"] {
+  line-height: 1px!important;
+  -moz-appearance: textfield;
+}
+
+
+.provide-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: left;
+  width: 100%;
+  border-top: 1px solid #abafb2;
+  padding: 10px 0;
+}
+
+.left-title {
+  width: 122px;
+  font-weight: bold;
+  margin-right: 20px;
+  font-size: 16px;
+  padding: 5px 0;
+}
+
+.right-content {
+  font-size: 16px;
+}
+
+.right-content-item {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.dateInput {
+  width: 120px;
+  height: 34px;
+  font-size: 16px;
+  line-height: 34px;
+  border: 1px solid #abafb2;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.right-content .numInput {
+  width: 24px;
+  vertical-align: middle;
+  height: 34px;
+  line-height: 34px;
+  border: 1px solid #abafb2;
+  background-color: #fff;
+  border-radius: 4px;
+  margin: 10px 0;
+  padding: 0 10px;
+}
+
+.layui-form-select{
+  border-radius: 4px;
+  border: 1px solid #abafb2;
+  width: 75px;
+  line-height: 34px;
+  background-color: #fff;
+  margin: 10px;
+}
+.layui-select-title .layui-input{
+  height: 34px;
+  border-width: 0;
+  background-color: transparent;
+}
+#minute {
+  width: 40px;
+  height: 34px;
+  line-height: 34px;
+  border: 1px solid #abafb2;
+  background-color: #fff;
+  border-radius: 4px;
+  margin: 10px 0;
+  padding: 0 10px;
+}
+
+.name-of-recipient,
+.contact-information {
+  width: 152px;
+  height: 34px;
+  line-height: 34px;
+  border: 1px solid #abafb2;
+  background-color: #fff;
+  border-radius: 4px;
+  margin: 10px 0;
+  padding: 0 10px;
+}
+.subBtn{
+  width: 100%;
+  text-align: center;
+}
+.layui-form-checkbox[lay-skin=primary] span {
+  font-size: 16px;
+  color: #333333;
+}

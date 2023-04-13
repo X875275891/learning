@@ -1,0 +1,196 @@
+*{
+  font-size: 14px;
+}
+html{
+  background-color: #fff;
+}
+.content {
+  width: 100%;
+  padding: 20px 0;
+  margin: 0 auto;
+  background-color: #FFF;
+}
+.layui-form-item{
+  margin-bottom: 30px;
+}
+.tip{
+  width: 80%;
+  position: fixed;
+  left: 50%;
+  bottom: 30px;
+  transform: translate(-50%, 0);
+  text-align: center;
+  font-size: 12px;
+}
+.table-box {
+  width: 80vw;
+  margin: 0 auto;
+  max-width: 600px;
+  height: 80vw;
+  max-height: 600px;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+  padding: 10px;
+}
+
+.lotteryTable {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 600px;
+  height: 80vw;
+  max-height: 600px;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+  padding: 10px;
+}
+
+.lotteryTable tr {
+  height: 30%;
+}
+
+.lotteryTable td {
+  width: 30%;
+  border: 20px solid #f7f7f7;
+  text-align: center;
+  font-size: 16px;
+  background-color: #f7f7f7;
+  color: #ff941a;
+  position: relative;
+}
+
+.thanks {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.prize-Pic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  z-index: 10;
+  background-color: #fff;
+}
+.lottery-Pic{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.prize-Pic-box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+  position: relative;
+}
+
+.prize-Pic-box .prize-name {
+  width: 100%;
+}
+
+.prize-Pic-box .prize-num {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.prize-Pic img {
+  width: 50%;
+  height: 50%;
+  margin-bottom: 10px;
+}
+
+.layui-input-block {
+  margin: 0;
+}
+
+.star {
+  color: #fff !important;
+  font-size: 20px;
+}
+
+.lottery-Pic.active {
+  background-color: rgba(255, 148, 26, 0.1);
+}
+
+.btn {
+  color: #fff;
+  width: 50%;
+  max-width: 300px;
+  margin: 10px auto;
+  padding: 10px 0;
+  border-radius: 10px;
+  background-color: #CCC;
+  cursor: pointer;
+  text-align: center;
+}
+
+.active {
+  background-color: #ff3a59;
+}
+
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+  z-index: 99;
+}
+
+.mask .pop {
+  width: 90%;
+  max-width: 600px;
+  background-color: #fff;
+  text-align: center;
+  margin: 0 auto;
+  padding: 50px 0 20px;
+  border-radius: 10px;
+  position: relative;
+  top: 30vh;
+}
+
+.pop-title {
+  font-size: 30px;
+}
+
+.pop-prize {
+  font-size: 35px;
+  margin-bottom: 40px;
+}
+
+.close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 16px;
+}
+
+.content-title {
+  width: 100%;
+  text-align: right;
+}
+
+.content-box {
+  width: 380px;
+  margin: 0px auto 0;
+  text-align: left;
+}
