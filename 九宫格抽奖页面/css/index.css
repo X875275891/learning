@@ -1,21 +1,26 @@
 html {
   background-color: #f7f7f7;
+  position: relative;
+  min-height: 100%;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
-* {
+body {
   font-size: 16px;
+  margin-bottom: 60px;
 }
 
 .content {
-  width: 800px;
-  margin: 0 auto;
+  width: 72%;
+  max-width: 1080px;
+  margin: 60px auto 0;
   background-color: #FFF;
   padding: 20px;
 }
 
 .table-box {
   width: 80vw;
-  margin: 0 auto;
   max-width: 600px;
   height: 80vw;
   max-height: 600px;
@@ -24,7 +29,8 @@ html {
   padding: 10px;
 }
 
-.prizeTable, .lotteryTable {
+.prizeTable,
+.lotteryTable {
   width: 100%;
   margin: 0 auto;
   max-width: 600px;
@@ -35,15 +41,16 @@ html {
   padding: 10px;
 }
 
-.prizeTable tr, .lotteryTable tr {
+.prizeTable tr,
+.lotteryTable tr {
   height: 30%;
 }
 
-.prizeTable td, .lotteryTable td {
+.prizeTable td,
+.lotteryTable td {
   width: 30%;
   border: 20px solid #f7f7f7;
   text-align: center;
-  font-size: 16px;
   background-color: #f7f7f7;
   color: #ff941a;
   position: relative;
@@ -97,7 +104,8 @@ html {
   z-index: 10;
   background-color: #fff;
 }
-.lottery-Pic{
+
+.lottery-Pic {
   width: 100%;
   height: 100%;
   display: flex;
@@ -106,6 +114,7 @@ html {
   border-radius: 10px;
   background-color: #fff;
 }
+
 .prize-Pic-box {
   width: 100%;
   height: 100%;
@@ -174,12 +183,14 @@ html {
 
 .addPicPop-content {
   position: absolute;
-  width: 480px;
-  height: 460px;
+  max-width: 480px;
+  width: 90%;
+  min-width: 280px;
   background-color: #fff;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding-bottom: 35px;
 }
 
 .content-title {
@@ -195,14 +206,13 @@ html {
 }
 
 .content-box {
-  width: 380px;
+  width: calc(100% - 40px);
   margin: 0px auto 0;
   text-align: left;
 }
 
 .addPicPop-content-title {
   text-align: left;
-  font-size: 16px;
   font-weight: bold;
 }
 
@@ -221,7 +231,6 @@ input {
 
 .addPicPop .prize-name,
 .addPicPop .prize-num {
-  width: 100%;
   height: 34px;
   line-height: 34px;
   border: 1px solid #abafb2;
@@ -236,15 +245,22 @@ input {
 
 .prize-num-unit {
   padding-left: 5px;
-  font-size: 16px;
 }
-
-#afterShow {
+.subPic{
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+.afterShow{
   border: 1px solid #abafb2;
   border-radius: 4px;
   margin: 10px;
   width: 100px;
   height: 100px;
+}
+#afterShow {
+  width: 100%;
+  height: 100%;
 }
 
 .decideToAddPic {
@@ -259,7 +275,7 @@ input {
   margin-right: 20px;
 }
 
-#decideToAddPic {
+#decideToAddPic, #delAddPic {
   display: block;
   margin: 0 auto;
   margin-top: 20px;
@@ -269,11 +285,208 @@ input {
   margin: 0px !important;
   padding: 0px;
 }
+
 .layui-form-radioed>i {
   color: #009688;
 }
+
 .layui-form-checked[lay-skin=primary] i {
-  border-color: #009688!important;
+  border-color: #009688 !important;
   background-color: #009688;
   color: #fff;
+}
+.layui-form-radio:hover *, .layui-form-radioed, .layui-form-radioed>i {
+  color: #009688;
+}
+/* google、safari */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0;
+  line-height: 1px !important;
+}
+
+/* 火狐 */
+input[type="number"] {
+  line-height: 1px !important;
+  -moz-appearance: textfield;
+}
+
+
+.provide-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: left;
+  width: 100%;
+  border-top: 1px solid #abafb2;
+  padding: 10px 0;
+}
+
+.left-title {
+  width: 122px;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.right-content-item {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+
+.dateInput {
+  width: 120px;
+  height: 34px;
+  line-height: 34px;
+  border: 1px solid #abafb2;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.right-content .numInput {
+  width: 24px;
+  vertical-align: middle;
+  height: 34px;
+  line-height: 34px;
+  border: 1px solid #abafb2;
+  background-color: #fff;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  padding: 0 10px;
+}
+
+.layui-form-select {
+  border-radius: 4px;
+  border: 1px solid #abafb2;
+  width: 75px;
+  line-height: 34px;
+  background-color: #fff;
+  margin: 0 10px;
+}
+
+.layui-select-title .layui-input {
+  height: 34px;
+  border-width: 0;
+  background-color: transparent;
+}
+
+#minute {
+  width: 40px;
+  height: 34px;
+  line-height: 34px;
+  border: 1px solid #abafb2;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 0 10px;
+}
+
+.name-of-recipient,
+.contact-information {
+  width: 152px;
+  height: 34px;
+  line-height: 34px;
+  border: 1px solid #abafb2;
+  background-color: #fff;
+  border-radius: 4px;
+  margin: 10px 0;
+  padding: 0 10px;
+}
+
+.subBtn {
+  width: 100%;
+  text-align: center;
+}
+
+.layui-form-checkbox[lay-skin=primary] span {
+  color: #333333;
+}
+
+.layui-form-item .layui-form-checkbox[lay-skin=primary] {
+  margin-top: 0px;
+}
+
+.layui-form-checkbox[lay-skin=primary] span {
+  font-size: 16px;
+  white-space: normal;
+  padding-right: 0;
+}
+.addPicPop-btn{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.layui-layer-btn .layui-layer-btn0 {
+  border-color: #009688;
+  background-color: #009688;
+  color: #fff;
+}
+@media (max-width: 768px) {
+  html,
+  body {
+    font-size: 14px;
+    margin: 10px;
+  }
+
+  .content {
+    width: calc(100% - 40px);
+    min-width: 240px;
+    margin: 10px auto 0;
+  }
+
+  .left-title {
+    width: 61px;
+    margin-right: 5px;
+    padding-bottom: 10px;
+  }
+
+  .right-content {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .dateInput {
+    width: 90px;
+  }
+
+  .layui-form-select {
+    width: 65px;
+  }
+
+  #minute {
+    width: 30px;
+  }
+
+  .table-box {
+    width: calc(100vw - 140px);
+    height: calc(100vw - 140px);
+    min-width: 180px;
+    min-height: 180px;
+    padding: 5px;
+    margin: 0 auto;
+  }
+
+  .prizeTable,
+  .lotteryTable {
+    width: calc(100vw - 140px);
+    height: calc(100vw - 140px);
+    min-width: 180px;
+    min-height: 180px;
+  }
+
+  .prizeTable td {
+    border: 10px solid #f7f7f7;
+  }
+
+  .star {
+    font-size: 14px;
+  }
+
+  .layui-form-checkbox[lay-skin=primary] span {
+    font-size: 14px;
+  }
+
+  .provide-item {
+    display: block;
+  }
 }

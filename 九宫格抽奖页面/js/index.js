@@ -1,20 +1,28 @@
-
 var FileUrl = ''
 var lotteryInformation = []
-var prizeId = null
-
+  var loading = null
+  var prizeId = null
+init()
+function init(){
+  JSON.parse(localStorage.getItem('settingInfo')).lotteryInfo?lotteryInformation = JSON.parse(localStorage.getItem('settingInfo')).lotteryInfo:''
+}
 $('.addPic').click(function (e) {
   $('.addPicPop').show()
   prizeId = $(e.target).attr('data-id')
-  console.log(lotteryInformation[prizeId]);
-  if(lotteryInformation[prizeId]){
-    $('.addPicPop .prize-name').val(lotteryInformation[prizeId].prizeName)
-    $('.addPicPop .prize-num').val(lotteryInformation[prizeId].prizeNum)
-    $('#afterShow').attr('src', lotteryInformation[prizeId].prizePic);
-  }else{
+  var thisInfo = lotteryInformation.filter((item) => {
+    return item.id ==  Number(prizeId)+ 1
+  });
+  if (thisInfo[0]) {
+    $('.addPicPop .prize-name').val(thisInfo[0].prizeName)
+    $('.addPicPop .prize-num').val(thisInfo[0].prizeNum)
+    thisInfo[0].prizePic ? $('#afterShow').attr('src', thisInfo[0].prizePic) : $('#afterShow').hide()
+    $('#delAddPic').show()
+  } else {
     $('.addPicPop .prize-name').val('')
     $('.addPicPop .prize-num').val('')
     $('#afterShow').attr('src', '');
+    $('#afterShow').hide()
+    $('#delAddPic').hide()
   }
 })
 $('.closeIcon').click(() => {
@@ -53,6 +61,23 @@ function addEverPrizeInfo() {
 $('#decideToAddPic').click(() => {
   checkInfo()
 })
+$('#delAddPic').click(() => {
+  layer.open({
+    content: '确定要删除该奖品的配置吗？',
+    btn: ['确定', '取消'],
+    yes: function (index, layero) {
+      lotteryInformation = lotteryInformation.filter((item) => {
+        return item.id !=  Number(prizeId)+ 1
+      });
+      $('.addPicPop').hide()
+      layer.close(index);
+    },
+    no: function (index, layero) {
+      layer.close(index);
+    }
+  });
+})
+
 layui.use('upload', function () {
   var upload = layui.upload,
     $ = layui.jquery;
@@ -67,19 +92,23 @@ layui.use('upload', function () {
       // obj.preview(function (index, file, result) {
       //   $('#preShow').attr('src', result); //图片链接（base64） 
       // });
+      loading = layer.load(2, {
+        shade: [0.6,'#000'] //0.1透明度的白色背景
+      });
     },
     done: function (res) {
-      console.log(res);
       if (res.Status == 200) {
+        $('#afterShow').show()
         $('#afterShow').attr('src', res.Data.FileUrl);
         FileUrl = res.Data.FileUrl
-        return layer.msg('上传成功');
+        layer.msg('上传成功');
       } else {
-        return layer.msg('上传失败');
+        layer.msg('上传失败');
       }
-
+      layer.close(loading);//loading层消失
     },
     error: function (res) {
+      layer.close(loading);
       return layer.msg(res.Message);
     }
   });
@@ -125,7 +154,7 @@ $('#submit').click(function () {
     nameOfRecipient: $('.name-of-recipient').val(),
     contactInformation: $('.contact-information').val(),
     status: $("input[name='Number-of-winners']:checked").val(),
-    statusNum: $('#'+$("input[name='Number-of-winners']:checked").val()).val(),
+    statusNum: $('#' + $("input[name='Number-of-winners']:checked").val()).val(),
     dayPrize: $("#day-prize").val(),
     oncePhone: $("input[type='checkbox']").prop('checked'),
     lotteryInfo: lotteryInformation
